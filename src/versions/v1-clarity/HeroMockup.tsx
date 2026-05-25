@@ -199,7 +199,7 @@ export default function HeroMockup({ isDark, activeTab }: { isDark: boolean; act
         {/* Sidebar - always the same; only highlight changes */}
         <div style={{ width: 192, background: T.body, borderRight: `1px solid ${T.sectionBorder}`, padding: "14px 8px", flexShrink: 0 }}>
           <div style={{ padding: "4px 8px 18px" }}>
-            <img src="/logo.svg" alt="Tramés" style={{ height: 18, width: "auto", display: "block", filter: T.logoFilter }} />
+            <img src={`${import.meta.env.BASE_URL}logo.svg`} alt="Tramés" style={{ height: 18, width: "auto", display: "block", filter: T.logoFilter }} />
           </div>
           {navItems.map((item, i) => (
             <div key={i} style={{ display: "flex", alignItems: "center", gap: 8, padding: "6px 8px", borderRadius: 5, marginBottom: 1, background: item.active ? T.activeBg : "transparent", transition: "background 0.15s" }}>

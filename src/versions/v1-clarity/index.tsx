@@ -220,7 +220,7 @@ function HeroNetworkSVG() {
   return (
     <div style={{ position: "relative", width: "100%", lineHeight: 0 }}>
       <img
-        src="/hero-ships.webp"
+        src={`${import.meta.env.BASE_URL}hero-ships.webp`}
         alt="Container ships on ocean"
         style={{
           width: "100%",
@@ -520,7 +520,7 @@ function Nav({ isDark }: { isDark: boolean }) {
     <Wrap style={{ height: 60, maxWidth: "none", padding, display: "flex", alignItems: "center", justifyContent: "space-between", position: "relative" }}>
           {/* Logo */}
           <img
-            src="/logo.svg"
+            src={`${import.meta.env.BASE_URL}logo.svg`}
             alt="Tramés"
             style={{
               height: 32,
@@ -1757,8 +1757,8 @@ function Ecosystem({ isDark }: { isDark: boolean }) {
               position: "absolute",
               inset: 0,
               background: "var(--c-reveal-base)",
-              WebkitMaskImage:    "url(/icon.svg)",
-              maskImage:          "url(/icon.svg)",
+              WebkitMaskImage:    `url(${import.meta.env.BASE_URL}icon.svg)`,
+              maskImage:          `url(${import.meta.env.BASE_URL}icon.svg)`,
               WebkitMaskSize:     "contain",
               maskSize:           "contain",
               WebkitMaskRepeat:   "no-repeat",
@@ -1773,7 +1773,7 @@ function Ecosystem({ isDark }: { isDark: boolean }) {
           {/* Colour layer rendered ON TOP — fades in on activation, fully
               covering the gray once colorOpacity hits 1. */}
           <motion.img
-            src="/icon.svg"
+            src={`${import.meta.env.BASE_URL}icon.svg`}
             alt="Tramés"
             style={{
               position: "absolute",
@@ -2280,7 +2280,7 @@ function Footer({ themeMode, onThemeModeChange }: { themeMode: ThemeMode; onThem
           {/* Brand */}
           <div>
             <div style={{ marginBottom: 14 }}>
-              <img src="/logo.svg" alt="Tramés" style={{ height: 22, width: "auto", display: "block", filter: "brightness(0) invert(0.92)" }} />
+              <img src={`${import.meta.env.BASE_URL}logo.svg`} alt="Tramés" style={{ height: 22, width: "auto", display: "block", filter: "brightness(0) invert(0.92)" }} />
             </div>
             <p style={{ fontSize: 12, color: "#64748b", lineHeight: 1.6, marginBottom: 20 }}>Complete visibility and control across your global freight operations.</p>
             <div style={{ display: "flex", gap: 8 }}>
@@ -2369,9 +2369,9 @@ const SETTINGS_KEYS = {
 export default function V1Page() {
   // Restore from localStorage on first render (fall back to defaults)
   const [themeMode, setThemeMode] = useState<ThemeMode>(() => {
-    if (typeof window === "undefined") return "system";
+    if (typeof window === "undefined") return "dark";
     const stored = window.localStorage.getItem(SETTINGS_KEYS.themeMode) as ThemeMode | null;
-    return stored ?? "system";
+    return stored ?? "dark";
   });
   const [systemDark, setSystemDark] = useState<boolean>(() => {
     if (typeof window === "undefined") return false;
